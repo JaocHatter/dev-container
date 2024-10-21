@@ -2,10 +2,10 @@
     "name": "JaocHatter",
     "dockerFile": "Dockerfile",
     "context": "..",
-    "remoteUser": "jared",
+    "remoteUser": "jaoc",
     "workspaceFolder": "/project",
     "workspaceMount": "source=${localWorkspaceFolder},target=/project,type=bind,consistency=delegated",
-    "runArgs": ["-h","kapumota"],
+    "runArgs": ["-h","jaoc"],
     "remoteEnv": {
         "FLASK_DEBUG": "true",
         "FLASK_APP": "counter:app",
