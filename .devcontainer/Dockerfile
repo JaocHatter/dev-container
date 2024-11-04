@@ -10,7 +10,7 @@ RUN apt-get update && \
     apt-get clean -y
 
 # Crear un usuario para desarrollo
-ARG USERNAME=JaocHatter
+ARG USERNAME=jaoc
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 

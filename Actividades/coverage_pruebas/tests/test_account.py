@@ -59,3 +59,34 @@ class TestAccountModel:
             account = Account(**data)
             account.create()
         assert len(Account.all()) == len(ACCOUNT_DATA)
+    
+    def test_repr(self):
+        # Arrange
+        account = Account()
+        # Act
+        account.name = "Jared"
+        # Assert
+        assert str(account) == "<Account 'Jared'>"
+
+    def test_to_dict(self):
+        # Arrange
+        account_data = ACCOUNT_DATA[0]
+        account = Account(**account_data)
+        result = account.to_dict()
+        assert result["id"] == account.id
+        assert result["name"] == account.name 
+        assert result["email"] == account.email
+        assert account.phone_number == result["phone_number"]
+        assert account.disabled == result["disabled"]
+        assert account.date_joined == result["date_joined"]
+
+    def test_update(self):
+        # Arrange
+        account_data = ACCOUNT_DATA[1]
+        account = Account(**account_data)
+        account.create()
+        assert account.id is not None
+        account.name = "Pepito"
+        account.update()
+        updated_account = Account.find(account.id)
+        assert updated_account.name == account.name

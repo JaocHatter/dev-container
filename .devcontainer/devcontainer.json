@@ -1,5 +1,5 @@
 {
-    "name": "JaocHatter",
+    "name": "jaoc",
     "dockerFile": "Dockerfile",
     "context": "..",
     "remoteUser": "jaoc",

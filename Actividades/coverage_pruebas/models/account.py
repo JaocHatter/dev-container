@@ -11,7 +11,6 @@ logger = logging.getLogger()
 class DataValidationError(Exception):
     """Utilizada para errores de validación de datos al deserializar"""
 
-
 class Account(db.Model):
     """Clase que representa una Cuenta"""
     
@@ -27,7 +26,7 @@ class Account(db.Model):
 
     def to_dict(self) -> dict:
         """Serializa la clase como un diccionario"""
-        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+        return {c.name: getattr(self,c.name) for c in self.__table__.columns}
 
     def from_dict(self, data: dict) -> None:
         """Establece atributos desde un diccionario"""
