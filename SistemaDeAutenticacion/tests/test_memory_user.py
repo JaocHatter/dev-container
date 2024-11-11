@@ -12,6 +12,7 @@ from src.models.user import User
 def repository():
     return MemoryUserRepository()
 
+
 @pytest.fixture
 def sample_user():
     return User(
@@ -45,8 +46,6 @@ def test_find_by_username(repository, sample_user):
     found_user = repository.find_by_username("testuser")
     assert found_user is not None
     assert found_user.username == "testuser"
-    
-    # Test non-existent user
     assert repository.find_by_username("nonexistent") is None
 
 def test_find_by_email(repository, sample_user):
@@ -55,7 +54,6 @@ def test_find_by_email(repository, sample_user):
     assert found_user is not None
     assert found_user.email == "test@example.com"
     
-    # Test non-existent email
     assert repository.find_by_email("nonexistent@example.com") is None
 
 def test_find_by_id(repository, sample_user):
@@ -63,8 +61,6 @@ def test_find_by_id(repository, sample_user):
     found_user = repository.find_by_id(saved_user.id)
     assert found_user is not None
     assert found_user.id == saved_user.id
-    
-    # Test non-existent ID
     assert repository.find_by_id(999) is None
 
 def test_multiple_users(repository):
