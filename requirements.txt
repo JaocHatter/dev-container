@@ -13,4 +13,5 @@ pytest-cov==3.0.0      # Reemplazo de pinocchio para cobertura
 coverage==6.3.2
 factory-boy==3.2.1     # Versión actualizada
 pylint==2.14.0
-
+PyJWT==2.9.0
+bcrypt
